@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Container, TextField, Button, Typography, Box, MenuItem, Alert } from '@mui/material';
-import { getOrderById, putOrder } from '../../../services/orders';
+import { getOrderById, putOrder } from '../../../services/order';
 import Loading from '../../common/Loading';
 
 const EditOrder = () => {

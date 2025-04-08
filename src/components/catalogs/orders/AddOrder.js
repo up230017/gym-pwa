@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Container, TextField, Button, Typography, Box, MenuItem, Alert } from '@mui/material';
-import { postOrder } from '../../../services/orders';
+import { postOrder } from '../../../services/order';
 import Loading from '../../common/Loading';
 
 const AddOrder = () => {

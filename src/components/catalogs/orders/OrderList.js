@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Container, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { getOrders, deleteOrder } from '../../../services/orders';
+import { getOrders, deleteOrder } from '../../../services/order';
 
 const OrderList = () => {
   const router = useRouter();
