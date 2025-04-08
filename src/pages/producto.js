@@ -6,7 +6,6 @@ import { Add, Remove } from "@mui/icons-material"
 import { useRouter } from "next/router"
 import Cookies from "js-cookie"
 import { useCart } from "../context/CartContext" // Importamos el contexto del carrito
-import "../styles/wavesMin.css" // Asegúrate de que la ruta sea correcta
 import { Delete } from "@mui/icons-material";
 
 const ProductoDetalle = () => {
