@@ -2,8 +2,6 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Container, TextField, Button, Typography, Alert, Card, Box, Select, MenuItem } from '@mui/material';
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Cookies from 'js-cookie';
 import { AuthContext } from '../../context/AuthContext';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';

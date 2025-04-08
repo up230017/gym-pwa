@@ -12,7 +12,6 @@ import {
   Button,
   Box
 } from '@mui/material';
-import Carousel from 'react-material-ui-carousel';
 import Cookies from 'js-cookie';
 import '../styles/diagonalLines.css';
 
@@ -30,28 +29,6 @@ const HomePage = () => {
   const [products, setProducts] = useState([]);
   const router = useRouter();
 
-  const carouselItems = [
-    {
-      image: 'https://www.fitnesstech.es/cdn/shop/files/untitled2_1920x1080.png?v=1738055732',
-      title: 'Pesas de Alta Calidad',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1672344048213-76b6e77304bd?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      title: 'Mancuernas Profesionales',
-    },
-    {
-      image: 'https://img.freepik.com/fotos-premium/varias-piezas-equipos-gimnasia-estan-dispuestas-superficie-textura-oscura-incluidas-bandas-resistencia-pesas-pesas-que-sugieren-entorno-entrenamiento-activo_497837-53338.jpg',
-      title: 'Bandas Elásticas Versátiles',
-    },
-    {
-      image: 'https://media.istockphoto.com/id/1400781187/es/foto/una-mujer-est%C3%A1-haciendo-un-batido-de-prote%C3%ADnas-despu%C3%A9s-de-un-entrenamiento-en-el-gimnasio-ella.jpg?s=612x612&w=0&k=20&c=S32FLtNOo_xJY_WK67CC_i4-Gw-8R6nemGOImZ6WkUQ=',
-      title: 'Suplementos Certficados',
-    },
-    {
-      image: 'https://img.freepik.com/foto-gratis/equipo-gimnasio-3d_23-2151114152.jpg',
-      title: 'Maquinas Adecuadas',
-    },
-  ];
 
   const creators = [
     {
@@ -186,30 +163,6 @@ const HomePage = () => {
           >
             Descubre la Fuerza de Nuestros Productos
           </Typography>
-          <Carousel animation="slide" interval={3000}>
-            {carouselItems.map((item, index) => (
-              <div key={index} style={{ margin: 0, padding: 0 }}>
-                <CardMedia
-                  component="img"
-                  height="250"
-                  image={item.image}
-                  alt={item.title}
-                  sx={{ borderRadius: '12px', boxShadow: '0px 4px 8px rgba(0,0,0,0.2)' }}
-                />
-                <Typography
-                  variant="h6"
-                  sx={{
-                    marginTop: '16px',
-                    color: '#333',
-                    textAlign: 'center',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  {item.title}
-                </Typography>
-              </div>
-            ))}
-          </Carousel>
 
           <Typography
             variant="h4" // Tamaño aumentado para mayor impacto
