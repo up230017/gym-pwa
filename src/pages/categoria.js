@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Typography, Card, CardContent, CardMedia, Button, Container, Grid, CardActions } from '@mui/material';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-import '../styles/waves.css'; // Asegúrate de que la ruta sea correcta
 
 const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 

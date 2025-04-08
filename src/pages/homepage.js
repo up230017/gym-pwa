@@ -13,7 +13,6 @@ import {
   Box
 } from '@mui/material';
 import Cookies from 'js-cookie';
-import '../styles/diagonalLines.css';
 
 
 // Importación de imágenes locales
