@@ -198,7 +198,7 @@ const TicketesPage = () => {
       <Typography variant="h4" align="center" fontWeight="bold">
         GLADIATOR GYM
       </Typography>
-      <Typography align="center">"COMPRA Y PAGA"</Typography>
+      <Typography align="center">COMPRA Y PAGA</Typography>
       <Typography align="center">AVDA. DEL CONSUMIDOR</Typography>
       <Divider sx={{ marginY: 2, backgroundColor: "#000" }} />
 
