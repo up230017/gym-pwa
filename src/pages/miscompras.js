@@ -15,7 +15,7 @@ const MisCompras = () => {
         const token = Cookies.get('token');
         if (!token) throw new Error('No se encontró un token de autenticación.');
 
-        const response = await fetch('http://localhost:3005/api/ticket', {
+        const response = await fetch('https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/ticket', {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ const MisCompras = () => {
       const token = Cookies.get('token');
       if (!token) throw new Error('No se encontró un token de autenticación.');
 
-      const response = await fetch(`http://localhost:3005/api/ticket/${ticketId}`, {
+      const response = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/ticket/${ticketId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

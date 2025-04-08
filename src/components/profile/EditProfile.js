@@ -110,7 +110,7 @@ const EditProfile = () => {
       const userId = Cookies.get('userId');
       if (!token || !userId) throw new Error('No authentication token found.');
   
-      const response = await fetch(`http://localhost:3005/api/user/${userId}`, {
+      const response = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/user/${userId}`, {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${token}`,

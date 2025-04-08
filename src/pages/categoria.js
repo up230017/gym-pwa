@@ -20,7 +20,7 @@ const CategoriaPagina = () => {
         const token = Cookies.get('token');
         if (!token) throw new Error('No se encontró un token de autenticación.');
 
-        const categoryResponse = await fetch(`http://localhost:3005/api/categories/${id}`, {
+        const categoryResponse = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/categories/${id}`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ const CategoriaPagina = () => {
         const categoryData = await categoryResponse.json();
         setCategory(categoryData);
 
-        const productsResponse = await fetch(`http://localhost:3005/api/products`, {
+        const productsResponse = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/products`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,

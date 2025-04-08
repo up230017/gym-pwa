@@ -86,7 +86,7 @@ const HomePage = () => {
         const token = Cookies.get('token');
         if (!token)
           throw new Error('No se encontró un token de autenticación. Por favor, inicia sesión.');
-        const response = await fetch('http://localhost:3005/api/products', {
+        const response = await fetch('https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/products', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ const HomePage = () => {
         const token = Cookies.get('token');
         if (!token)
           throw new Error('No se encontró un token de autenticación. Por favor, inicia sesión.');
-        const response = await fetch('http://localhost:3005/api/categories', {
+        const response = await fetch('https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/categories', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

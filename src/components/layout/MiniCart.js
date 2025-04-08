@@ -79,7 +79,7 @@ const MiniCart = () => {
         const token = Cookies.get('token');
         const userId = user.id;
 
-        const response = await fetch(`http://localhost:3005/api/cart/${userId}`, {
+        const response = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/cart/${userId}`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,

@@ -35,7 +35,7 @@ const ProductPanel = () => {
         }
 
         // Obtener productos
-        const productResponse = await fetch('http://localhost:3005/api/products', {
+        const productResponse = await fetch('https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/products', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -50,7 +50,7 @@ const ProductPanel = () => {
         const productData = await productResponse.json();
 
         // Obtener categorías
-        const categoryResponse = await fetch('http://localhost:3005/api/categories', {
+        const categoryResponse = await fetch('https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/categories', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -92,7 +92,7 @@ const ProductPanel = () => {
         throw new Error('No se encontró un token de autenticación. Por favor inicia sesión.');
       }
 
-      const response = await fetch(`http://localhost:3005/api/products/${id}`, {
+      const response = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/products/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

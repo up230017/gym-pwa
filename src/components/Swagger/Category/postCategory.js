@@ -18,7 +18,7 @@ const PostCategory = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:3005/api/categories', {
+      const response = await fetch('https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/categories', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

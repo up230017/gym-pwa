@@ -23,7 +23,7 @@ const PutMethodPayment = () => {
         const token = Cookies.get('token');
         if (!token) throw new Error('No se encontró un token de autenticación.');
 
-        const response = await fetch(`http://localhost:3005/api/method_payment/${id}`, {
+        const response = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/method_payment/${id}`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -53,7 +53,7 @@ const PutMethodPayment = () => {
       const token = Cookies.get('token');
       if (!token) throw new Error('No se encontró un token de autenticación.');
 
-      const response = await fetch(`http://localhost:3005/api/method_payment/${id}`, {
+      const response = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/method_payment/${id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,

@@ -46,7 +46,7 @@ const ProductoDetalle = () => {
         if (!token) throw new Error("No se encontró un token de autenticación.");
   
         // Obtener información del producto junto con sus comentarios asociados
-        const productResponse = await fetch(`http://localhost:3005/api/products/${id}`, {
+        const productResponse = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/products/${id}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ const ProductoDetalle = () => {
         setProduct(productData);
   
         // Obtener los comentarios del producto desde el modelo de comentarios en la API
-        const commentsResponse = await fetch(`http://localhost:3005/api/comments?product_id=${id}`, {
+        const commentsResponse = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/comments?product_id=${id}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -77,7 +77,7 @@ const ProductoDetalle = () => {
         setComments(filteredComments); // Asegurar que los comentarios sean del producto correcto
   
         // Obtener las categorías
-        const categoryResponse = await fetch("http://localhost:3005/api/categories", {
+        const categoryResponse = await fetch("https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/categories", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -167,7 +167,7 @@ const ProductoDetalle = () => {
         content: newComment
       };
   
-      const response = await fetch("http://localhost:3005/api/comments", {
+      const response = await fetch("https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/comments", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -182,7 +182,7 @@ const ProductoDetalle = () => {
       }
   
       // Recargar el producto para obtener los comentarios actualizados
-      const updatedProductResponse = await fetch(`http://localhost:3005/api/products/${product._id}`, {
+      const updatedProductResponse = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/products/${product._id}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -207,7 +207,7 @@ const ProductoDetalle = () => {
       const token = Cookies.get("token");
       if (!token) throw new Error("No se encontró autenticación.");
 
-      const response = await fetch(`http://localhost:3005/api/comments/${commentId}`, {
+      const response = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/comments/${commentId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

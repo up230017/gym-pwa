@@ -29,7 +29,7 @@ const TicketPage = () => {
           const userId = Cookies.get("userId");
           if (!token || !userId) return;
 
-          const response = await fetch(`http://localhost:3005/api/method_payment/${userId}`, {
+          const response = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/method_payment/${userId}`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${token}`,
@@ -69,38 +69,38 @@ const TicketPage = () => {
   const handlePay = async () => {
     try {
       const token = Cookies.get("token");
+      const userId = Cookies.get("userId");
       if (!token) throw new Error("No se encontró un token de autenticación.");
-
       if (!purchaseSummary || !purchaseSummary.products) {
         throw new Error("No hay productos en el resumen de compra.");
       }
-
+  
       const { products, total } = purchaseSummary;
-
+  
       // Validar y actualizar cada producto
       await Promise.all(
         products.map(async (product) => {
           const productId = product.id || product._id;
-
-          const productResponse = await fetch(`http://localhost:3005/api/products/${productId}`, {
+  
+          const productResponse = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/products/${productId}`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
           });
-
+  
           if (!productResponse.ok) {
             throw new Error(`Error al obtener información del producto "${product.name}": ${productResponse.statusText}`);
           }
-
+  
           const updatedProduct = await productResponse.json();
-
+  
           if (updatedProduct.amount < product.quantity) {
             throw new Error(`El producto "${product.name}" no tiene suficiente inventario. Disponible: ${updatedProduct.amount}`);
           }
-
-          const reduceResponse = await fetch(`http://localhost:3005/api/products/${productId}`, {
+  
+          const reduceResponse = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/products/${productId}`, {
             method: "PUT",
             headers: {
               Authorization: `Bearer ${token}`,
@@ -115,15 +115,37 @@ const TicketPage = () => {
               category: updatedProduct.category,
             }),
           });
-
+  
           if (!reduceResponse.ok) {
             const errorData = await reduceResponse.json();
             throw new Error(`Error al actualizar el producto "${product.name}": ${errorData.message || reduceResponse.statusText}`);
           }
         })
       );
-
-      alert("Pago realizado exitosamente.");
+  
+      // Crear el ticket después de procesar el pago
+      const ticketData = {
+        idCompra: Math.random().toString(36).substr(2, 12), // ID único de compra
+        idUsuario: userId,
+        montoDeDinero: total,
+        fechaDeEmision: new Date(),
+        detalles: `Compra realizada con ${products.length} productos.`,
+      };
+  
+      const ticketResponse = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/ticket`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(ticketData),
+      });
+  
+      if (!ticketResponse.ok) {
+        throw new Error("Error al generar el ticket.");
+      }
+  
+      alert("Pago realizado y ticket generado exitosamente.");
       router.push("/miscompras");
     } catch (error) {
       console.error("Error al procesar el pago:", error.message);

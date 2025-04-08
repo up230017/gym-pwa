@@ -108,7 +108,7 @@ const OrderPage = () => {
         }
 
         // Obtener datos del usuario
-        const userResponse = await fetch(`http://localhost:3005/api/user/${userId}`, {
+        const userResponse = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/user/${userId}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -130,7 +130,7 @@ const OrderPage = () => {
 
         // Obtener productos del carrito desde la API
         try {
-          const productsResponse = await fetch(`http://localhost:3005/api/cart/${userId}`, {
+          const productsResponse = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/cart/${userId}`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${token}`,
@@ -211,7 +211,7 @@ const OrderPage = () => {
       // Actualizar la cantidad de productos en el inventario
       await Promise.all(
         allProducts.map(async (product) => {
-          await fetch(`http://localhost:3005/api/products/${product.id || product._id}`, {
+          await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/products/${product.id || product._id}`, {
             method: "PUT",
             headers: {
               Authorization: `Bearer ${token}`,
@@ -256,7 +256,7 @@ const OrderPage = () => {
 
       const newDirection = `${country} ${streetNumber} ${postalCode}`
 
-      const response = await fetch(`http://localhost:3005/api/user/${userId}`, {
+      const response = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/user/${userId}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -295,7 +295,7 @@ const OrderPage = () => {
       };
 
       // Guardar en la base de datos
-      const response = await fetch(`http://localhost:3005/api/method_payment/${userId}`, {
+      const response = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/method_payment/${userId}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,

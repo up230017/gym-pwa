@@ -27,7 +27,7 @@ const PutCategory = () => {
       }
 
       // Realizar la solicitud PUT para actualizar la categoría
-      const response = await fetch(`http://localhost:3005/api/categories/${id}`, {
+      const response = await fetch(`https://gladiator-gym-api-5b2f674fd27d.herokuapp.com/api/categories/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
